@@ -6,7 +6,7 @@ Descripción de la web
 from flask import Flask, render_template, request, jsonify
 from gestor import *
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
 @app.route('/')
 def index():
@@ -23,6 +23,6 @@ def consultaMaterias():
     return jsonify(estados_plan2023)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000)    
     #app.run(debug=True)
 
