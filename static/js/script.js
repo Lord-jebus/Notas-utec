@@ -1,5 +1,7 @@
-$(document).ready(function() {    
-    function dropdown(e) { // Función para controlar el desplegable del menú
+$(document).ready(function() { 
+    //$('#mostrarPlan').on('click', function() {
+        
+    function dropdown(e) { // Función para controlar el desplegable del menú  
         var $el = e.data.el;
         $this = $(this),
         $next = $this.next();
@@ -19,7 +21,7 @@ $(document).ready(function() {
 
     const plan2023Div = document.querySelector('.plan2023Struct');
     const mostrarPlanButton = document.getElementById('mostrarPlan'); // Obtengo el boton mostrarPlan
-    mostrarPlanButton.addEventListener('click', function() {
+    mostrarPlanButton.addEventListener('click', function() { 
         const materias = [];
         const radioButtons = document.querySelectorAll("input[type='radio']:checked");
 
@@ -31,14 +33,13 @@ $(document).ready(function() {
         if (plan2023Div.classList.contains('hidden')) {
             plan2023Div.classList.remove('hidden');
         }
-
+        const url = 'http://3.18.181.47/api2/consultaMaterias';
         // Envio al back end el vector de materias con la información de estados.
         $.ajax({
             type: 'POST',
-            url: '/consultaMaterias',
+            url: url,
             contentType: 'application/json', 
             data: JSON.stringify({estados: materias}),  // Enviar el array como JSON 
-
             success: function(response) {
                 console.log(response);
                 const materiaDivs = document.querySelectorAll(".plan2023 .child");
