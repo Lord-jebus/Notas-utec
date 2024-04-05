@@ -574,10 +574,11 @@ def plan2023(): # BD materias del plan 2023
 
 def cargarBD(Alumno): # Instancia datos de los planes de estudio 
     global unAlumno
-    unAlumno = Alumno    
-    plan_2018 = plan2018()
-    for i, materia in enumerate(plan_2018):
-        unAlumno.materias_2018[i].nombre = materia['nombre']
+    unAlumno = Alumno
+    if(not unAlumno.materias_2018[0].nombre):
+        plan_2018 = plan2018()
+        for i, materia in enumerate(plan_2018):
+            unAlumno.materias_2018[i].nombre = materia['nombre']
     
     plan_2023 = plan2023()
     for i, materia in enumerate(plan_2023):
@@ -599,11 +600,15 @@ def cargarEstados2018(estados_2018): # Objetivo 1, carga los estados de las mate
 def actualizarEstados2023(): #  Objetivo 2, actualiza los estados del plan 2023, en base a materias eq del plan 2018     
     nuevos_estados = []
     for i, unaMateria in enumerate(unAlumno.materias_2023):
-        nuevo_estado = nuevoEstado(unaMateria)
-        unAlumno.materias_2023[i] = nuevo_estado
-        nuevos_estados.append(nuevo_estado)
-    
+        if (unaMateria.materiasEq2018[0]):  # Si la materia tiene equivalentes, controla su nuevo estado 
+            nuevo_estado = nuevoEstado(unaMateria)
+            unAlumno.materias_2023[i] = nuevo_estado
+            nuevos_estados.append(nuevo_estado)
+        else:
+            unAlumno.materias_2023[i] = EstadoMateria.PENDIENTE
+            nuevos_estados.append(EstadoMateria.PENDIENTE)
     return nuevos_estados
+
 def nuevoEstado(unaMateria: Materia2023): # Función auxiliar al objetivo 2 
     estadoNuevo = EstadoMateria.APROBADA # Se presupone que la materia de nuevo plan si se puede revalidar.
     encontreMateria = False # Se presupone que no existe materia previa,
@@ -615,9 +620,6 @@ def nuevoEstado(unaMateria: Materia2023): # Función auxiliar al objetivo 2
         for materia_2018 in unAlumno.materias_2018:
             if materia_eq_2018 in materia_2018.nombre:
                 encontreMateria = True
-                if materia_2018.nombre == "fenomenos_de_transporte":
-                    #print(f"ACA ESTA: {materia_2018.nombre} .. {materia_2018.estado}")
-                    pass
                 if materia_eq_2018 == materia_2018.nombre:
                     if materia_2018.estado == EstadoMateria.EXAMEN:
                         # Cómo TUTORIA es el peor caso, hay que tomar esa excepción
@@ -627,20 +629,18 @@ def nuevoEstado(unaMateria: Materia2023): # Función auxiliar al objetivo 2
                             estadoNuevo = EstadoMateria.EXAMEN
                     elif materia_2018.estado == EstadoMateria.TUTORIA:
                         estadoNuevo = EstadoMateria.TUTORIA
-                    elif materia_2018.estado == 0:
-                        if materia_2018.nombre == "fenomenos_de_transporte":
-                            #print ("Hola mundo")
-                            pass
+                    elif materia_2018.estado == EstadoMateria.PENDIENTE:
                         # Si alguna materia eq del plan 2018 se encuentra pendiente,
                         # la correspondiente al plan 2023 tendrá el mismo estado,
                         # sin importar el estado del resto de mateiras eq.
-                        return EstadoMateria.PENDIENTE
+                        estadoNuevo = EstadoMateria.PENDIENTE
     
     # Verifica si la materia es nueva.
     if not encontreMateria:
         return EstadoMateria.PENDIENTE
     
     return estadoNuevo
+
 def puedeCursarMateria(unaMateria: Materia2023): # Objetivo 3, comprobar si puede cursar X nueva materia 
     for previa_aprobada in unaMateria.previas_aprobadas:
         if previa_aprobada: # Verifica exista al menos una materia aprovada para luego confirmar
@@ -656,8 +656,6 @@ def puedeCursarMateria(unaMateria: Materia2023): # Objetivo 3, comprobar si pued
                     return False
     
     return True
-
-
 
 def mostrarAlumno():
     print(f"Nombre: {unAlumno.nombre}")
