@@ -18,6 +18,7 @@ Objetivos
         En la página web se representa PENDIENTE≡GRIS, TUTORIA≡ROJO, EXAMEN≡AMARILLO y APROBADA≡VERDE
     3)  Función que compruebe si una materia del 2023 puede ser cursada en el próximo semestre.
 """
+
 class EstadoMateria:
     PENDIENTE = 0
     APROBADA = 1
@@ -43,7 +44,7 @@ class Alumno:
         self.ci = 44207503
         self.materias_2023 = [Materia2023() for _ in range(61)]
         self.materias_2018 = [Materia2018() for _ in range(57)]
-#unAlumno = Alumno()        
+unAlumno = Alumno()
 
 def plan2018(): # BD materias del plan 2018 
     plan2018 = [
@@ -116,7 +117,6 @@ def plan2018(): # BD materias del plan 2018
             { 'nombre': "proyecto_final_ing" }
         ]
     return plan2018
-
 def plan2023(): # BD materias del plan 2023 
     plan_2023 = [ 
         # S1 - 6 materias
@@ -310,7 +310,7 @@ def plan2023(): # BD materias del plan 2023
             'materiasEq2018': ["mecanica_aplicada_a_maquinas", "maquinas_electricas"], 
             'semestre': 5
         },
-        { # TIND 
+        { # TIND nueva
             'codigo': "TIND", 
             'nombre': "Telematica industrial", 
             'previasCursadas': ["TMPR","PRG3"], 
@@ -443,7 +443,7 @@ def plan2023(): # BD materias del plan 2023
             "materiasEq2018": ["gestion"],
             "semestre": 7
         },
-        { # SEMB 
+        { # SEMB nueva 
             "codigo": "SEMB",
             "nombre": "Sistemas embebidos",
             "previasCursadas": ["TDCR"],
@@ -480,12 +480,12 @@ def plan2023(): # BD materias del plan 2023
             "materiasEq2018": ["programacion_4"],
             "semestre": 8
         },
-        { # MDSA 
+        { # MDSA nueva 
             "codigo": "MDSA",
             "nombre": "Mantenimiento de sistemas automatizados",
             "previasCursadas": ["SEMB"],
             "previasAprobadas": ["EDG2", "HYNE", "AUTM", "TDCR", "IMEL", "PIND", "PFTM"],
-            "semestre": 8
+            "semestre": 8   
         },
         { # SCAP 
             "codigo": "SCAP",
@@ -519,21 +519,21 @@ def plan2023(): # BD materias del plan 2023
             'previasAprobadas': ["MAT4", "EPOT", "MEM2", "GPYE", "SEMB", "TCYF"], 
             'semestre': 9
         },
-        { #MAIC
+        { # MAIC
             'codigo': "MAIC", 
             'nombre': "Manufactura asistida por computador", 
             'materiasEq2018': ["manufactura_asistida"], 
             'previasAprobadas': ["MAT4", "EPOT", "MEM2", "GPYE", "SEMB", "TCYF"], 
             'semestre': 9
         },
-        { #CPIN
+        { # CPIN
             'codigo': "CPIN", 
             'nombre': "Costos para ingenieria", 
             'materiasEq2018': ["costos"], 
             'previasAprobadas': ["MAT4", "EPOT", "MEM2", "GPYE", "SEMB", "TCYF"], 
             'semestre': 9
         },
-        { #PFG1
+        { # PFG1
             'codigo': "PFG1", 
             'nombre': "Proyecto final de grado 1", 
             'materiasEq2018': ["anteproyecto_de_ing"], 
@@ -541,28 +541,28 @@ def plan2023(): # BD materias del plan 2023
             'semestre': 9
         },
         # S10 - 4 materias
-        { #GCAL
+        { # GCAL
             'codigo': "GCAL", 
             'nombre': "Gestion de calidad", 
             'materiasEq2018': ["gestion_de_calidad"], 
             'previasAprobadas': ["PYES", "MNPI", "PRDS", "MDSA", "SCAP", "TDM2"], 
             'semestre': 10
         },
-        { #GIAM
+        { # GIAM
             'codigo': "GIAM", 
             'nombre': "Gestion de impacto ambiental", 
             'materiasEq2018': ["gestion_ambiental"], 
             'previasAprobadas': ["PYES", "MNPI", "PRDS", "MDSA", "SCAP", "TDM2"], 
             'semestre': 10
         },
-        { #SICF
+        { # SICF
                 'codigo': "SICF", 
             'nombre': "Sistemas inteligentes y ciberfisicos", 
             'materiasEq2018': ["sistemas_inteligentes_y_ciberfisicos"], 
             'previasAprobadas': ["PYES", "MNPI", "PRDS", "MDSA", "SCAP", "TDM2"], 
             'semestre': 10
         },
-        { #PFG2
+        { # PFG2
             'codigo': "PFG2", 
             'nombre': "Proyecto final de grado 2", 
             'materiasEq2018': ["proyecto_final_ing"], 
@@ -571,33 +571,29 @@ def plan2023(): # BD materias del plan 2023
         }
     ]
     return plan_2023
-
-def cargarBD(Alumno): # Instancia datos de los planes de estudio 
-    global unAlumno
-    unAlumno = Alumno
+def cargarBD(): # Instancia datos de los planes de estudio 
     if(not unAlumno.materias_2018[0].nombre):
         plan_2018 = plan2018()
         for i, materia in enumerate(plan_2018):
             unAlumno.materias_2018[i].nombre = materia['nombre']
-    
-    plan_2023 = plan2023()
-    for i, materia in enumerate(plan_2023):
-        unAlumno.materias_2023[i].nombre = materia['nombre']
-        unAlumno.materias_2023[i].codigo = materia['codigo']
-        unAlumno.materias_2023[i].semestre = materia['semestre']
-        if 'materiasEq2018' in materia:
-            unAlumno.materias_2023[i].materiasEq2018 = materia['materiasEq2018']
-        if 'previasCursadas' in materia:
-            unAlumno.materias_2023[i].previas_cursadas = materia['previasCursadas']
-        if 'previasAprobadas' in materia:
-            unAlumno.materias_2023[i].previas_aprobadas = materia['previasAprobadas']
-
+        
+        plan_2023 = plan2023()
+        for i, materia in enumerate(plan_2023):
+            unAlumno.materias_2023[i].nombre = materia['nombre']
+            unAlumno.materias_2023[i].codigo = materia['codigo']
+            unAlumno.materias_2023[i].semestre = materia['semestre']
+            if 'materiasEq2018' in materia:
+                unAlumno.materias_2023[i].materiasEq2018 = materia['materiasEq2018']
+            if 'previasCursadas' in materia:
+                unAlumno.materias_2023[i].previas_cursadas = materia['previasCursadas']
+            if 'previasAprobadas' in materia:
+                unAlumno.materias_2023[i].previas_aprobadas = materia['previasAprobadas']
 
 def cargarEstados2018(estados_2018): # Objetivo 1, carga los estados de las materias del plan 2018 mediante un POST de la web 
     # Aquí ingresa el formato [1, 2, 3, 0... y los actualiza en cada materia del alumno.
     for estado, materia_2018 in zip(estados_2018, unAlumno.materias_2018):
         materia_2018.estado = estado
-def actualizarEstados2023(): #  Objetivo 2, actualiza los estados del plan 2023, en base a materias eq del plan 2018     
+def actualizarEstados2023(): #  Objetivo 2, actualiza los estados del plan 2023, en base a materias eq del plan 2018 
     nuevos_estados = []
     for i, unaMateria in enumerate(unAlumno.materias_2023):
         if (unaMateria.materiasEq2018[0]):  # Si la materia tiene equivalentes, controla su nuevo estado 
@@ -640,7 +636,6 @@ def nuevoEstado(unaMateria: Materia2023): # Función auxiliar al objetivo 2
         return EstadoMateria.PENDIENTE
     
     return estadoNuevo
-
 def puedeCursarMateria(unaMateria: Materia2023): # Objetivo 3, comprobar si puede cursar X nueva materia 
     for previa_aprobada in unaMateria.previas_aprobadas:
         if previa_aprobada: # Verifica exista al menos una materia aprovada para luego confirmar
