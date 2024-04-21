@@ -8,6 +8,8 @@ Las materias que son o egreso serian
     
     QUITAR EN TEC DEMATERIALES 22 DINAICA Y MAQUINAS Y VIBRACIONES
 
+    
+
 Descripción
     El obj principal es actualizar el plan de estudios del año 2018 con 57 materias, a 61 materias correspondientes al plan del año 2023.
     Cada materia se encuentra en uno de los siguientes estados: pendiente, aprobada, exámen o tutoría.
