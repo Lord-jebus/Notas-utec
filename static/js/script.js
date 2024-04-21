@@ -1,35 +1,42 @@
-$(document).ready(function() { 
-    //$('#mostrarPlan').on('click', function() {
-        
-    function dropdown(e) { // Función para controlar el desplegable del menú  
+$(document).ready(function() {    
+    function dropdown(e) { // Función para controlar el desplegable del menú
         var $el = e.data.el;
         $this = $(this),
         $next = $this.next();
-
-        $next.slideToggle();
+        
+        $next.slideToggle(); // Si estaba oculto, se desplegará; si estaba desplegado, se ocultará
         $this.parent().toggleClass('open');
-
+        
         if (!e.data.multiple) {
             $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
         }
     }
-
+    
     var $accordion = $('#accordion');
-    var $links = $accordion.find('.link');
-
-    $links.on('click', { el: $accordion, multiple: false }, dropdown);
-
+    var $desplegables = $accordion.find('.desplegable');
+    
+    $desplegables.on('click', { el: $accordion, multiple: false }, dropdown);
+    
     const plan2023Div = document.querySelector('.plan2023Struct');
     const mostrarPlanButton = document.getElementById('mostrarPlan'); // Obtengo el boton mostrarPlan
-    mostrarPlanButton.addEventListener('click', function() { 
+    mostrarPlanButton.addEventListener('click', function() {
         const materias = [];
         const radioButtons = document.querySelectorAll("input[type='radio']:checked");
-
+        var btn_titulo_intermedio = document.getElementById('btn_contenedor');
+        var isPresionado = btn_titulo_intermedio.classList.contains('seleccionado'); // Verificar si el botón está activado o desactivado
+        var i=0;
+        
         radioButtons.forEach(function(radioButton) {
             const estado = parseInt(radioButton.value); // Convertir el valor a entero
-            materias.push(estado); // Agregar el estado al vector
+            i++;
+            if(isPresionado && i<=36){ // Las primeras 36 materias son correspondientes al título intermedio
+                console.log("prueba");
+                materias.push(1);
+            }else{
+                materias.push(estado); // Agregar el estado al vector
+            }
         });
-
+        
         if (plan2023Div.classList.contains('hidden')) {
             plan2023Div.classList.remove('hidden');
         }
@@ -38,13 +45,14 @@ $(document).ready(function() {
         $.ajax({
             type: 'POST',
             url: url,
-            contentType: 'application/json', 
+            contentType: 'application/json',  
             data: JSON.stringify({estados: materias}),  // Enviar el array como JSON 
+            
             success: function(response) {
                 console.log(response);
                 const materiaDivs = document.querySelectorAll(".plan2023 .child");
-                materiaDivs.forEach(function(materiaDiv, index) {
-                    const estado = response[index];
+                materiaDivs.forEach(function(materiaDiv, index_materia) {
+                    const estado = response[index_materia];
                     materiaDiv.classList.remove("pendiente", "aprobada", "examen", "tutoria");
                     
                     if (estado === 0) {
@@ -56,6 +64,12 @@ $(document).ready(function() {
                     } else if (estado === 3) {
                         materiaDiv.classList.add("tutoria");
                     }
+
+                    if(isPresionado && ((index_materia == 17) || (index_materia == 20) || 
+                    (index_materia == 30) || (index_materia == 34) || (index_materia == 35))){ // Si se presionó que tiene el título, debe también exonerar las materias..
+                        // Dinámica y estática = 17 , P3 = 20, Pocesos de fabricación = 30, HYN = 34, Automatización de procesos industriales = 35. 
+                        materiaDiv.classList.add("aprobada");
+                    }
                 });
             },
             
@@ -64,39 +78,38 @@ $(document).ready(function() {
             }
         });    
     });
-
+    
     $('input[type="radio"]').prop('checked', false); // Desmarcar todos los radios
     $('input[value="0"]').prop('checked', true); // Marcar los radios con valor 0 (Pendiente)
 });
 
-    /*
-    if (topic === topicToSubscribe) {
-        const receivedMessage = JSON.parse(message.toString());
+function toggleEgresoIntermedio() {
+    var btn_titulo_intermedio = document.getElementById('btn_contenedor');
+    var isPresionado = btn_titulo_intermedio.classList.contains('seleccionado'); // Verificar si el botón está activado o desactivado
+    btn_titulo_intermedio.classList.toggle('seleccionado'); // Alternar la clase 'seleccionado' 
+    egresoIntermiedio(isPresionado);
+}
 
-        // Crea un DOM virtual con jsdom para cambiar los colores/estados de cada materia 2023
-        const dom = new JSDOM(`<!DOCTYPE html><html><body></body></html>`);
-        const document = dom.window.document;
-        const materiaDivs = document.querySelectorAll(".plan2023 .child");
-
-
-        // Seleccionar y modificar los elementos del DOM virtual
-        for (let i = 0; i < receivedMessage.length; i++) {
-            const estado = receivedMessage[i];
-
-            if (estado === 0) {
-                materiaDivs[i].classList.add("pendiente");
-            } else if (estado === 1) {
-                materiaDivs[i].classList.add("aprobada");
-            } else if (estado === 2) {
-                materiaDivs[i].classList.add("examen");
-            } else if (estado === 3) {
-                materiaDivs[i].classList.add("tutoria");
-            }
+function egresoIntermiedio(isPresionado) { 
+    const desplegables = document.querySelectorAll(".desplegable");
+    
+    desplegables.forEach(function(desplegable, index_semestre){
+        if(index_semestre<6){ // Los primeros 6 semestres son respectivos al titulo intermedio.
+            var flecha_abajo = desplegable.querySelector('.fa-chevron-down');
+            var guion = desplegable.querySelector('.fa-minus');
+            var numero = desplegable.querySelector('.fa-solid');
+            
+            if (isPresionado) {
+                flecha_abajo.classList.remove('inhabilitado');
+                guion.classList.remove('inhabilitado');
+                numero.classList.remove('inhabilitado');
+                desplegable.classList.remove('inhabilitado');
+            } else {
+                flecha_abajo.classList.add('inhabilitado');
+                guion.classList.add('inhabilitado');
+                numero.classList.add('inhabilitado');
+                desplegable.classList.add('inhabilitado');
+            }        
         }
-
-        // Convertir el DOM virtual a una cadena HTML modificada
-        const modifiedHtml = dom.serialize();
-
-        // Aquí puedes enviar o utilizar modifiedHtml según tus necesidades
-        console.log(modifiedHtml);
-    }*/
+    }); 
+}

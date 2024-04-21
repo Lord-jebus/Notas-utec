@@ -9,471 +9,520 @@
     
     <!-- Iconos -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
+    
     <!-- Estilos -->    
-    <link rel="stylesheet" href="{{ url_for('static', filename='static/css/styles.css') }}">
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    
     <!-- Sccripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{{ url_for('static', filename='static/js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    
     <title>Cambio de planes</title>
-</head>
-    <body>
-        <h1>Plan 2018 </h1>
+    </head>
+        <body>
+            <div class="cabecera2018">
+                <h1>Plan 2018 </h1>
+                <button class="boton_titulo" id="btn_contenedor" onclick="toggleEgresoIntermedio()">Título intermedio</button>
+            </div>
         <ul id="accordion" class="accordion">
             <li>
-                <div class="link"><i class="fa-solid fa-1"></i>Primer semestre<i class="fa fa-chevron-down"></i></div>
-                <ul class="submenu">
+                <div class="desplegable">
+                    <i class="fa-solid fa-1"></i>
+                    <p>Primer semestre</p>
+                    <i class="fa-solid fa-minus"></i>
+                    <i class="fa fa-chevron-down"></i>
+                </div>
+                <ul class="submenu semestres_tecnologo">
                     <li class="materia-label">
-                        <p ></p>
-                        <p >Pendiente</p>
-                        <p >Aprobada</p>
-                        <p >Examen</p>
-                        <p >Tutoría</p>
+                        <p></p>
+                        <p>Pendiente</p>
+                        <p>Aprobada</p>
+                        <p>Examen</p>
+                        <p>Tutoría</p>
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Matematica 1</p>
-                        <input type="radio" name="matematica_1" value="0">
-                        <input type="radio" name="matematica_1" value="1">
-                        <input type="radio" name="matematica_1" value="2">
-                        <input type="radio" name="matematica_1" value="3">
+                        <input class="radio" type="radio" name="matematica_1" value="0">
+                        <input class="radio" type="radio" name="matematica_1" value="1">
+                        <input class="radio" type="radio" name="matematica_1" value="2">
+                        <input class="radio" type="radio" name="matematica_1" value="3">
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Electricidad y electrónica industrial</p>
-                        <input type="radio" name="electricidad_electronica_industrial" value="0">
-                        <input type="radio" name="electricidad_electronica_industrial" value="1">
-                        <input type="radio" name="electricidad_electronica_industrial" value="2">
-                        <input type="radio" name="electricidad_electronica_industrial" value="3">
+                        <input class="radio" type="radio" name="electricidad_electronica_industrial" value="0">
+                        <input class="radio" type="radio" name="electricidad_electronica_industrial" value="1">
+                        <input class="radio" type="radio" name="electricidad_electronica_industrial" value="2">
+                        <input class="radio" type="radio" name="electricidad_electronica_industrial" value="3">
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Introduccion a la mecatrónica</p>
-                        <input type="radio" name="introduccion_a_la_mecatronica" value="0">
-                        <input type="radio" name="introduccion_a_la_mecatronica" value="1">
-                        <input type="radio" name="introduccion_a_la_mecatronica" value="2">
-                        <input type="radio" name="introduccion_a_la_mecatronica" value="3">
+                        <input class="radio" type="radio" name="introduccion_a_la_mecatronica" value="0">
+                        <input class="radio" type="radio" name="introduccion_a_la_mecatronica" value="1">
+                        <input class="radio" type="radio" name="introduccion_a_la_mecatronica" value="2">
+                        <input class="radio" type="radio" name="introduccion_a_la_mecatronica" value="3">
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Física</p>
-                        <input type="radio" name="fisica" value="0">
-                        <input type="radio" name="fisica" value="1">
-                        <input type="radio" name="fisica" value="2">
-                        <input type="radio" name="fisica" value="3">
+                        <input class="radio" type="radio" name="fisica" value="0">
+                        <input class="radio" type="radio" name="fisica" value="1">
+                        <input class="radio" type="radio" name="fisica" value="2">
+                        <input class="radio" type="radio" name="fisica" value="3">
                     </li>                    
                     <li class="materia-label">
                         <p class="materia-nombre">Química</p>
-                        <input type="radio" name="quimica" value="0">
-                        <input type="radio" name="quimica" value="1">
-                        <input type="radio" name="quimica" value="2">
-                        <input type="radio" name="quimica" value="3">
+                        <input class="radio" type="radio" name="quimica" value="0">
+                        <input class="radio" type="radio" name="quimica" value="1">
+                        <input class="radio" type="radio" name="quimica" value="2">
+                        <input class="radio" type="radio" name="quimica" value="3">
                     </li>
                 </ul>
             </li>
             <li>
-                <div class="link"><i class="fa-solid fa-2"></i>Segundo semestre<i class="fa fa-chevron-down"></i></div>
-                <ul class="submenu">
+                <div class="desplegable"><i class="fa-solid fa-2"></i>
+                    <p>Segundo semestre</p>
+                    <i class="fa-solid fa-minus"></i>
+                    <i class="fa fa-chevron-down"></i>
+                </div>
+                <ul class="submenu semestres_tecnologo">
                     <li class="materia-label">
-                        <p ></p>
-                        <p >Pendiente</p>
-                        <p >Aprobada</p>
-                        <p >Examen</p>
-                        <p >Tutoría</p>
+                        <p></p>
+                        <p>Pendiente</p>
+                        <p>Aprobada</p>
+                        <p>Examen</p>
+                        <p>Tutoría</p>
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Matemática 2</p>
-                        <input type="radio" name="matematica_2" value="0">
-                        <input type="radio" name="matematica_2" value="1">
-                        <input type="radio" name="matematica_2" value="2">
-                        <input type="radio" name="matematica_2" value="3">
+                        <input class="radio" type="radio" name="matematica_2" value="0">
+                        <input class="radio" type="radio" name="matematica_2" value="1">
+                        <input class="radio" type="radio" name="matematica_2" value="2">
+                        <input class="radio" type="radio" name="matematica_2" value="3">
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Mecánica aplicada a máquinas</p>
-                        <input type="radio" name="mecanica_aplicada_a_maquinas" value="0">
-                        <input type="radio" name="mecanica_aplicada_a_maquinas" value="1">
-                        <input type="radio" name="mecanica_aplicada_a_maquinas" value="2">
-                        <input type="radio" name="mecanica_aplicada_a_maquinas" value="3">
+                        <input class="radio" type="radio" name="mecanica_aplicada_a_maquinas" value="0">
+                        <input class="radio" type="radio" name="mecanica_aplicada_a_maquinas" value="1">
+                        <input class="radio" type="radio" name="mecanica_aplicada_a_maquinas" value="2">
+                        <input class="radio" type="radio" name="mecanica_aplicada_a_maquinas" value="3">
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Termodinámica</p>
-                        <input type="radio" name="termodinamica" value="0">
-                        <input type="radio" name="termodinamica" value="1">
-                        <input type="radio" name="termodinamica" value="2">
-                        <input type="radio" name="termodinamica" value="3">
+                        <input class="radio" type="radio" name="termodinamica" value="0">
+                        <input class="radio" type="radio" name="termodinamica" value="1">
+                        <input class="radio" type="radio" name="termodinamica" value="2">
+                        <input class="radio" type="radio" name="termodinamica" value="3">
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Ciencia de los Materiales</p>
-                        <input type="radio" name="ciencia_de_los_materiales" value="0">
-                        <input type="radio" name="ciencia_de_los_materiales" value="1">
-                        <input type="radio" name="ciencia_de_los_materiales" value="2">
-                        <input type="radio" name="ciencia_de_los_materiales" value="3">
+                        <input class="radio" type="radio" name="ciencia_de_los_materiales" value="0">
+                        <input class="radio" type="radio" name="ciencia_de_los_materiales" value="1">
+                        <input class="radio" type="radio" name="ciencia_de_los_materiales" value="2">
+                        <input class="radio" type="radio" name="ciencia_de_los_materiales" value="3">
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Teoría de Circuitos</p>
-                        <input type="radio" name="teoria_de_circuitos" value="0">
-                        <input type="radio" name="teoria_de_circuitos" value="1">
-                        <input type="radio" name="teoria_de_circuitos" value="2">
-                        <input type="radio" name="teoria_de_circuitos" value="3">
+                        <input class="radio" type="radio" name="teoria_de_circuitos" value="0">
+                        <input class="radio" type="radio" name="teoria_de_circuitos" value="1">
+                        <input class="radio" type="radio" name="teoria_de_circuitos" value="2">
+                        <input class="radio" type="radio" name="teoria_de_circuitos" value="3">
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Proyecto 1</p>
-                        <input type="radio" name="proyecto_1" value="0">
-                        <input type="radio" name="proyecto_1" value="1">
-                        <input type="radio" name="proyecto_1" value="2">
-                        <input type="radio" name="proyecto_1" value="3">
+                        <input class="radio" type="radio" name="proyecto_1" value="0">
+                        <input class="radio" type="radio" name="proyecto_1" value="1">
+                        <input class="radio" type="radio" name="proyecto_1" value="2">
+                        <input class="radio" type="radio" name="proyecto_1" value="3">
                     </li>
                 </ul>
             </li>
             <li>
-                <div class="link"><i class="fa-solid fa-3"></i>Tercer semestre<i class="fa fa-chevron-down"></i></div>
-                <ul class="submenu">
+                <div class="desplegable">
+                    <i class="fa-solid fa-3"></i>
+                    <p>Tercer semestre</p>
+                    <i class="fa-solid fa-minus"></i>
+                    <i class="fa fa-chevron-down"></i>
+                </div>
+                <ul class="submenu semestres_tecnologo">
                     <li class="materia-label">
-                        <p ></p>
-                        <p >Pendiente</p>
-                        <p >Aprobada</p>
-                        <p >Examen</p>
-                        <p >Tutoría</p>
+                        <p></p>
+                        <p>Pendiente</p>
+                        <p>Aprobada</p>
+                        <p>Examen</p>
+                        <p>Tutoría</p>
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Matemática 3</p>
-                        <input type="radio" name="matematica_3" value="0">
-                        <input type="radio" name="matematica_3" value="1">
-                        <input type="radio" name="matematica_3" value="2">
-                        <input type="radio" name="matematica_3" value="3">
+                        <input class="radio" type="radio" name="matematica_3" value="0">
+                        <input class="radio" type="radio" name="matematica_3" value="1">
+                        <input class="radio" type="radio" name="matematica_3" value="2">
+                        <input class="radio" type="radio" name="matematica_3" value="3">
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Diseño lógico</p>
-                        <input type="radio" name="diseño_logico" value="0">
-                        <input type="radio" name="diseño_logico" value="1">
-                        <input type="radio" name="diseño_logico" value="2">
-                        <input type="radio" name="diseño_logico" value="3">
+                        <input class="radio" type="radio" name="diseño_logico" value="0">
+                        <input class="radio" type="radio" name="diseño_logico" value="1">
+                        <input class="radio" type="radio" name="diseño_logico" value="2">
+                        <input class="radio" type="radio" name="diseño_logico" value="3">
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Electrónica Aplicada</p>
-                        <input type="radio" name="electronica_aplicada" value="0">
-                        <input type="radio" name="electronica_aplicada" value="1">
-                        <input type="radio" name="electronica_aplicada" value="2">
-                        <input type="radio" name="electronica_aplicada" value="3">
+                        <input class="radio" type="radio" name="electronica_aplicada" value="0">
+                        <input class="radio" type="radio" name="electronica_aplicada" value="1">
+                        <input class="radio" type="radio" name="electronica_aplicada" value="2">
+                        <input class="radio" type="radio" name="electronica_aplicada" value="3">
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Electromagnetismo</p>
-                        <input type="radio" name="electromagnetismo" value="0">
-                        <input type="radio" name="electromagnetismo" value="1">
-                        <input type="radio" name="electromagnetismo" value="2">
-                        <input type="radio" name="electromagnetismo" value="3">
+                        <input class="radio" type="radio" name="electromagnetismo" value="0">
+                        <input class="radio" type="radio" name="electromagnetismo" value="1">
+                        <input class="radio" type="radio" name="electromagnetismo" value="2">
+                        <input class="radio" type="radio" name="electromagnetismo" value="3">
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">CAD</p>
-                        <input type="radio" name="cad" value="0">
-                        <input type="radio" name="cad" value="1">
-                        <input type="radio" name="cad" value="2">
-                        <input type="radio" name="cad" value="3">
+                        <input class="radio" type="radio" name="cad" value="0">
+                        <input class="radio" type="radio" name="cad" value="1">
+                        <input class="radio" type="radio" name="cad" value="2">
+                        <input class="radio" type="radio" name="cad" value="3">
                     </li>                    
                     <li class="materia-label">
                         <p class="materia-nombre">Programación 1</p>
-                        <input type="radio" name="programacion_1" value="0">
-                        <input type="radio" name="programacion_1" value="1">
-                        <input type="radio" name="programacion_1" value="2">
-                        <input type="radio" name="programacion_1" value="3">
+                        <input class="radio" type="radio" name="programacion_1" value="0">
+                        <input class="radio" type="radio" name="programacion_1" value="1">
+                        <input class="radio" type="radio" name="programacion_1" value="2">
+                        <input class="radio" type="radio" name="programacion_1" value="3">
                     </li>                    
                     <li class="materia-label">
                         <p class="materia-nombre">Proyecto 2</p>
-                        <input type="radio" name="proyecto_2" value="0">
-                        <input type="radio" name="proyecto_2" value="1">
-                        <input type="radio" name="proyecto_2" value="2">
-                        <input type="radio" name="proyecto_2" value="3">
+                        <input class="radio" type="radio" name="proyecto_2" value="0">
+                        <input class="radio" type="radio" name="proyecto_2" value="1">
+                        <input class="radio" type="radio" name="proyecto_2" value="2">
+                        <input class="radio" type="radio" name="proyecto_2" value="3">
                     </li>
                 </ul>
             </li>
-            <li><div class="link"><i class="fa-solid fa-4"></i>Cuarto semestre<i class="fa fa-chevron-down"></i></div>
-                <ul class="submenu">
+            <li>
+                <div class="desplegable">
+                    <i class="fa-solid fa-4"></i>
+                    <p>Cuarto semestre</p>
+                    <i class="fa-solid fa-minus"></i>
+                    <i class="fa fa-chevron-down"></i>
+                </div>
+                <ul class="submenu semestres_tecnologo">
                     <li class="materia-label">
-                        <p ></p>
-                        <p >Pendiente</p>
-                        <p >Aprobada</p>
-                        <p >Examen</p>
-                        <p >Tutoría</p>
+                        <p></p>
+                        <p>Pendiente</p>
+                        <p>Aprobada</p>
+                        <p>Examen</p>
+                        <p>Tutoría</p>
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Seguridad laboral</p>
-                        <input type="radio" name="seguridad_laboral" value="0">
-                        <input type="radio" name="seguridad_laboral" value="1">
-                        <input type="radio" name="seguridad_laboral" value="2">
-                        <input type="radio" name="seguridad_laboral" value="3">
+                        <input class="radio" type="radio" name="seguridad_laboral" value="0">
+                        <input class="radio" type="radio" name="seguridad_laboral" value="1">
+                        <input class="radio" type="radio" name="seguridad_laboral" value="2">
+                        <input class="radio" type="radio" name="seguridad_laboral" value="3">
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Microcontroladores</p>
-                        <input type="radio" name="microcontroladores" value="0">
-                        <input type="radio" name="microcontroladores" value="1">
-                        <input type="radio" name="microcontroladores" value="2">
-                        <input type="radio" name="microcontroladores" value="3">
+                        <input class="radio" type="radio" name="microcontroladores" value="0">
+                        <input class="radio" type="radio" name="microcontroladores" value="1">
+                        <input class="radio" type="radio" name="microcontroladores" value="2">
+                        <input class="radio" type="radio" name="microcontroladores" value="3">
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Programacion 2</p>
-                        <input type="radio" name="programacion_2" value="0">
-                        <input type="radio" name="programacion_2" value="1">
-                        <input type="radio" name="programacion_2" value="2">
-                        <input type="radio" name="programacion_2" value="3">
+                        <input class="radio" type="radio" name="programacion_2" value="0">
+                        <input class="radio" type="radio" name="programacion_2" value="1">
+                        <input class="radio" type="radio" name="programacion_2" value="2">
+                        <input class="radio" type="radio" name="programacion_2" value="3">
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Instrumentacion</p>
-                        <input type="radio" name="instrumentacion" value="0">
-                        <input type="radio" name="instrumentacion" value="1">
-                        <input type="radio" name="instrumentacion" value="2">
-                        <input type="radio" name="instrumentacion" value="3">
+                        <input class="radio" type="radio" name="instrumentacion" value="0">
+                        <input class="radio" type="radio" name="instrumentacion" value="1">
+                        <input class="radio" type="radio" name="instrumentacion" value="2">
+                        <input class="radio" type="radio" name="instrumentacion" value="3">
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Costos</p>
-                        <input type="radio" name="costos" value="0">
-                        <input type="radio" name="costos" value="1">
-                        <input type="radio" name="costos" value="2">
-                        <input type="radio" name="costos" value="3">
+                        <input class="radio" type="radio" name="costos" value="0">
+                        <input class="radio" type="radio" name="costos" value="1">
+                        <input class="radio" type="radio" name="costos" value="2">
+                        <input class="radio" type="radio" name="costos" value="3">
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Proyecto 3</p>
-                        <input type="radio" name="proyecto_3" value="0">
-                        <input type="radio" name="proyecto_3" value="1">
-                        <input type="radio" name="proyecto_3" value="2">
-                        <input type="radio" name="proyecto_3" value="3">
+                        <input class="radio" type="radio" name="proyecto_3" value="0">
+                        <input class="radio" type="radio" name="proyecto_3" value="1">
+                        <input class="radio" type="radio" name="proyecto_3" value="2">
+                        <input class="radio" type="radio" name="proyecto_3" value="3">
                     </li>
                 </ul>
             </li>
-            <li><div class="link"><i class="fa-solid fa-5"></i>Quinto semestre<i class="fa fa-chevron-down"></i></div>
-                <ul class="submenu">
+            <li><div class="desplegable">
+                <i class="fa-solid fa-5"></i>
+                <p>Quinto semestre</p>
+                <i class="fa-solid fa-minus"></i>
+                <i class="fa fa-chevron-down"></i>
+            </div>
+                <ul class="submenu semestres_tecnologo">
                     <li class="materia-label">
-                        <p ></p>
-                        <p >Pendiente</p>
-                        <p >Aprobada</p>
-                        <p >Examen</p>
-                        <p >Tutoría</p>
+                        <p></p>
+                        <p>Pendiente</p>
+                        <p>Aprobada</p>
+                        <p>Examen</p>
+                        <p>Tutoría</p>
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Introduccion a Control</p>
-                        <input type="radio" name="introduccion_a_control" value="0">
-                        <input type="radio" name="introduccion_a_control" value="1">
-                        <input type="radio" name="introduccion_a_control" value="2">
-                        <input type="radio" name="introduccion_a_control" value="3">
+                        <input class="radio" type="radio" name="introduccion_a_control" value="0">
+                        <input class="radio" type="radio" name="introduccion_a_control" value="1">
+                        <input class="radio" type="radio" name="introduccion_a_control" value="2">
+                        <input class="radio" type="radio" name="introduccion_a_control" value="3">
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Maquinas Electricas</p>
-                        <input type="radio" name="maquinas_electricas" value="0">
-                        <input type="radio" name="maquinas_electricas" value="1">
-                        <input type="radio" name="maquinas_electricas" value="2">
-                        <input type="radio" name="maquinas_electricas" value="3">
+                        <input class="radio" type="radio" name="maquinas_electricas" value="0">
+                        <input class="radio" type="radio" name="maquinas_electricas" value="1">
+                        <input class="radio" type="radio" name="maquinas_electricas" value="2">
+                        <input class="radio" type="radio" name="maquinas_electricas" value="3">
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Mecatronica</p>
-                        <input type="radio" name="mecatronica" value="0">
-                        <input type="radio" name="mecatronica" value="1">
-                        <input type="radio" name="mecatronica" value="2">
-                        <input type="radio" name="mecatronica" value="3">
+                        <input class="radio" type="radio" name="mecatronica" value="0">
+                        <input class="radio" type="radio" name="mecatronica" value="1">
+                        <input class="radio" type="radio" name="mecatronica" value="2">
+                        <input class="radio" type="radio" name="mecatronica" value="3">
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Hidráulica 1</p>
-                        <input type="radio" name="hidraulica_1" value="0">
-                        <input type="radio" name="hidraulica_1" value="1">
-                        <input type="radio" name="hidraulica_1" value="2">
-                        <input type="radio" name="hidraulica_1" value="3">
+                        <input class="radio" type="radio" name="hidraulica_1" value="0">
+                        <input class="radio" type="radio" name="hidraulica_1" value="1">
+                        <input class="radio" type="radio" name="hidraulica_1" value="2">
+                        <input class="radio" type="radio" name="hidraulica_1" value="3">
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Gestión</p>
-                        <input type="radio" name="gestion" value="0">
-                        <input type="radio" name="gestion" value="1">
-                        <input type="radio" name="gestion" value="2">
-                        <input type="radio" name="gestion" value="3">
+                        <input class="radio" type="radio" name="gestion" value="0">
+                        <input class="radio" type="radio" name="gestion" value="1">
+                        <input class="radio" type="radio" name="gestion" value="2">
+                        <input class="radio" type="radio" name="gestion" value="3">
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Proyecto 4</p>
-                        <input type="radio" name="proyecto_4" value="0">
-                        <input type="radio" name="proyecto_4" value="1">
-                        <input type="radio" name="proyecto_4" value="2">
-                        <input type="radio" name="proyecto_4" value="3">
+                        <input class="radio" type="radio" name="proyecto_4" value="0">
+                        <input class="radio" type="radio" name="proyecto_4" value="1">
+                        <input class="radio" type="radio" name="proyecto_4" value="2">
+                        <input class="radio" type="radio" name="proyecto_4" value="3">
                     </li>
                 </ul>
             </li>
-            <li><div class="link"><i class="fa-solid fa-6"></i>Sexto semestre<i class="fa fa-chevron-down"></i></div>
-                <ul class="submenu">
+            <li>
+                <div class="desplegable">
+                    <i class="fa-solid fa-6"></i>
+                    <p>Sexto semestre</p>
+                    <i class="fa-solid fa-minus"></i>
+                    <i class="fa fa-chevron-down"></i>
+                </div>
+                <ul class="submenu semestres_tecnologo">
                     <li class="materia-label">
-                        <p ></p>
-                        <p >Pendiente</p>
-                        <p >Aprobada</p>
-                        <p >Examen</p>
-                        <p >Tutoría</p>
+                        <p></p>
+                        <p>Pendiente</p>
+                        <p>Aprobada</p>
+                        <p>Examen</p>
+                        <p>Tutoría</p>
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Proyecto Tecnólogo</p>
-                        <input type="radio" name="proyecto_tecnologo" value="0">
-                        <input type="radio" name="proyecto_tecnologo" value="1">
-                        <input type="radio" name="proyecto_tecnologo" value="2">
-                        <input type="radio" name="proyecto_tecnologo" value="3">
+                        <input class="radio" type="radio" name="proyecto_tecnologo" value="0">
+                        <input class="radio" type="radio" name="proyecto_tecnologo" value="1">
+                        <input class="radio" type="radio" name="proyecto_tecnologo" value="2">
+                        <input class="radio" type="radio" name="proyecto_tecnologo" value="3">
                     </li>
                     
                     <li class="materia-label">
                         <p class="materia-nombre">PPT</p>
-                        <input type="radio" name="ppt" value="0">
-                        <input type="radio" name="ppt" value="1">
-                        <input type="radio" name="ppt" value="2">
-                        <input type="radio" name="ppt" value="3">
+                        <input class="radio" type="radio" name="ppt" value="0">
+                        <input class="radio" type="radio" name="ppt" value="1">
+                        <input class="radio" type="radio" name="ppt" value="2">
+                        <input class="radio" type="radio" name="ppt" value="3">
                     </li>
                     
                     <li class="materia-label">
                         <p class="materia-nombre">Tecnología de Control y Robótica</p>
-                        <input type="radio" name="tecnologia_de_control_y_robotica" value="0">
-                        <input type="radio" name="tecnologia_de_control_y_robotica" value="1">
-                        <input type="radio" name="tecnologia_de_control_y_robotica" value="2">
-                        <input type="radio" name="tecnologia_de_control_y_robotica" value="3">
+                        <input class="radio" type="radio" name="tecnologia_de_control_y_robotica" value="0">
+                        <input class="radio" type="radio" name="tecnologia_de_control_y_robotica" value="1">
+                        <input class="radio" type="radio" name="tecnologia_de_control_y_robotica" value="2">
+                        <input class="radio" type="radio" name="tecnologia_de_control_y_robotica" value="3">
                     </li>
                     
                     <li class="materia-label">
                         <p class="materia-nombre">Técnicas Digitales</p>
-                        <input type="radio" name="tecnicas_digitales" value="0">
-                        <input type="radio" name="tecnicas_digitales" value="1">
-                        <input type="radio" name="tecnicas_digitales" value="2">
-                        <input type="radio" name="tecnicas_digitales" value="3">
+                        <input class="radio" type="radio" name="tecnicas_digitales" value="0">
+                        <input class="radio" type="radio" name="tecnicas_digitales" value="1">
+                        <input class="radio" type="radio" name="tecnicas_digitales" value="2">
+                        <input class="radio" type="radio" name="tecnicas_digitales" value="3">
                     </li>
                     
                     <li class="materia-label">
                         <p class="materia-nombre">Legislación Laboral</p>
-                        <input type="radio" name="legislacion_laboral" value="0">
-                        <input type="radio" name="legislacion_laboral" value="1">
-                        <input type="radio" name="legislacion_laboral" value="2">
-                        <input type="radio" name="legislacion_laboral" value="3">
+                        <input class="radio" type="radio" name="legislacion_laboral" value="0">
+                        <input class="radio" type="radio" name="legislacion_laboral" value="1">
+                        <input class="radio" type="radio" name="legislacion_laboral" value="2">
+                        <input class="radio" type="radio" name="legislacion_laboral" value="3">
                     </li>
                     
                     <li class="materia-label">
                         <p class="materia-nombre">Comunicación Profesional</p>
-                        <input type="radio" name="comunicacion_profesional" value="0">
-                        <input type="radio" name="comunicacion_profesional" value="1">
-                        <input type="radio" name="comunicacion_profesional" value="2">
-                        <input type="radio" name="comunicacion_profesional" value="3">
+                        <input class="radio" type="radio" name="comunicacion_profesional" value="0">
+                        <input class="radio" type="radio" name="comunicacion_profesional" value="1">
+                        <input class="radio" type="radio" name="comunicacion_profesional" value="2">
+                        <input class="radio" type="radio" name="comunicacion_profesional" value="3">
                     </li>
                     
                 </ul>
             </li>
-            <li><div class="link"><i class="fa-solid fa-7"></i>Séptimo semestre<i class="fa fa-chevron-down"></i></div>
+            <li>
+                <div class="desplegable">
+                    <i class="fa-solid fa-7"></i>
+                    <p>Séptimo semestre</p>
+                    <i class="fa fa-chevron-down"></i>
+                </div>
                 <ul class="submenu">
                     <li class="materia-label">
-                        <p ></p>
-                        <p >Pendiente</p>
-                        <p >Aprobada</p>
-                        <p >Examen</p>
-                        <p >Tutoría</p>
+                        <p></p>
+                        <p>Pendiente</p>
+                        <p>Aprobada</p>
+                        <p>Examen</p>
+                        <p>Tutoría</p>
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Matemática 4</p>
-                        <input type="radio" name="matematica_4" value="0">
-                        <input type="radio" name="matematica_4" value="1">
-                        <input type="radio" name="matematica_4" value="2">
-                        <input type="radio" name="matematica_4" value="3">
+                        <input class="radio" type="radio" name="matematica_4" value="0">
+                        <input class="radio" type="radio" name="matematica_4" value="1">
+                        <input class="radio" type="radio" name="matematica_4" value="2">
+                        <input class="radio" type="radio" name="matematica_4" value="3">
                     </li>
                     
                     <li class="materia-label">
                         <p class="materia-nombre">Metalurgia Física</p>
-                        <input type="radio" name="metalurgica_fisica" value="0">
-                        <input type="radio" name="metalurgica_fisica" value="1">
-                        <input type="radio" name="metalurgica_fisica" value="2">
-                        <input type="radio" name="metalurgica_fisica" value="3">
+                        <input class="radio" type="radio" name="metalurgica_fisica" value="0">
+                        <input class="radio" type="radio" name="metalurgica_fisica" value="1">
+                        <input class="radio" type="radio" name="metalurgica_fisica" value="2">
+                        <input class="radio" type="radio" name="metalurgica_fisica" value="3">
                     </li>
                     
                     <li class="materia-label">
                         <p class="materia-nombre">Electrónica de Potencia</p>
-                        <input type="radio" name="electronica_de_potencia" value="0">
-                        <input type="radio" name="electronica_de_potencia" value="1">
-                        <input type="radio" name="electronica_de_potencia" value="2">
-                        <input type="radio" name="electronica_de_potencia" value="3">
+                        <input class="radio" type="radio" name="electronica_de_potencia" value="0">
+                        <input class="radio" type="radio" name="electronica_de_potencia" value="1">
+                        <input class="radio" type="radio" name="electronica_de_potencia" value="2">
+                        <input class="radio" type="radio" name="electronica_de_potencia" value="3">
                     </li>
                     
                     <li class="materia-label">
                         <p class="materia-nombre">Mecánica</p>
-                        <input type="radio" name="mecanica" value="0">
-                        <input type="radio" name="mecanica" value="1">
-                        <input type="radio" name="mecanica" value="2">
-                        <input type="radio" name="mecanica" value="3">
+                        <input class="radio" type="radio" name="mecanica" value="0">
+                        <input class="radio" type="radio" name="mecanica" value="1">
+                        <input class="radio" type="radio" name="mecanica" value="2">
+                        <input class="radio" type="radio" name="mecanica" value="3">
                     </li>
                     
                     <li class="materia-label">
                         <p class="materia-nombre">Programación 3</p>
-                        <input type="radio" name="programacion_3" value="0">
-                        <input type="radio" name="programacion_3" value="1">
-                        <input type="radio" name="programacion_3" value="2">
-                        <input type="radio" name="programacion_3" value="3">
+                        <input class="radio" type="radio" name="programacion_3" value="0">
+                        <input class="radio" type="radio" name="programacion_3" value="1">
+                        <input class="radio" type="radio" name="programacion_3" value="2">
+                        <input class="radio" type="radio" name="programacion_3" value="3">
                     </li>
                     
                 </ul>
             </li>
-            <li><div class="link"><i class="fa-solid fa-8"></i>Octavo semestre<i class="fa fa-chevron-down"></i></div>
+            <li>
+                <div class="desplegable">
+                    <i class="fa-solid fa-8"></i>
+                    <p>Octavo semestre</p>
+                    <i class="fa fa-chevron-down"></i>
+                </div>
                 <ul class="submenu">
                     <li class="materia-label">
-                        <p ></p>
-                        <p >Pendiente</p>
-                        <p >Aprobada</p>
-                        <p >Examen</p>
-                        <p >Tutoría</p>
+                        <p></p>
+                        <p>Pendiente</p>
+                        <p>Aprobada</p>
+                        <p>Examen</p>
+                        <p>Tutoría</p>
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Métodos Numéricos</p>
-                        <input type="radio" name="metodos_numericos" value="0">
-                        <input type="radio" name="metodos_numericos" value="1">
-                        <input type="radio" name="metodos_numericos" value="2">
-                        <input type="radio" name="metodos_numericos" value="3">
+                        <input class="radio" type="radio" name="metodos_numericos" value="0">
+                        <input class="radio" type="radio" name="metodos_numericos" value="1">
+                        <input class="radio" type="radio" name="metodos_numericos" value="2">
+                        <input class="radio" type="radio" name="metodos_numericos" value="3">
                     </li>
                     
                     <li class="materia-label">
                         <p class="materia-nombre">Dinámica y Vibraciones</p>
-                        <input type="radio" name="dinamica_y_vibraciones" value="0">
-                        <input type="radio" name="dinamica_y_vibraciones" value="1">
-                        <input type="radio" name="dinamica_y_vibraciones" value="2">
-                        <input type="radio" name="dinamica_y_vibraciones" value="3">
+                        <input class="radio" type="radio" name="dinamica_y_vibraciones" value="0">
+                        <input class="radio" type="radio" name="dinamica_y_vibraciones" value="1">
+                        <input class="radio" type="radio" name="dinamica_y_vibraciones" value="2">
+                        <input class="radio" type="radio" name="dinamica_y_vibraciones" value="3">
                     </li>
                     
                     <li class="materia-label">
                         <p class="materia-nombre">Sistemas de Control Aplicados</p>
-                        <input type="radio" name="sistemas_de_control_aplicados" value="0">
-                        <input type="radio" name="sistemas_de_control_aplicados" value="1">
-                        <input type="radio" name="sistemas_de_control_aplicados" value="2">
-                        <input type="radio" name="sistemas_de_control_aplicados" value="3">
+                        <input class="radio" type="radio" name="sistemas_de_control_aplicados" value="0">
+                        <input class="radio" type="radio" name="sistemas_de_control_aplicados" value="1">
+                        <input class="radio" type="radio" name="sistemas_de_control_aplicados" value="2">
+                        <input class="radio" type="radio" name="sistemas_de_control_aplicados" value="3">
                     </li>
                     
                     <li class="materia-label">
                         <p class="materia-nombre">Programación 4</p>
-                        <input type="radio" name="programacion_4" value="0">
-                        <input type="radio" name="programacion_4" value="1">
-                        <input type="radio" name="programacion_4" value="2">
-                        <input type="radio" name="programacion_4" value="3">
+                        <input class="radio" type="radio" name="programacion_4" value="0">
+                        <input class="radio" type="radio" name="programacion_4" value="1">
+                        <input class="radio" type="radio" name="programacion_4" value="2">
+                        <input class="radio" type="radio" name="programacion_4" value="3">
                     </li>
                     
                     <li class="materia-label">
                         <p class="materia-nombre">Hidráulica 2</p>
-                        <input type="radio" name="hidraulica_2" value="0">
-                        <input type="radio" name="hidraulica_2" value="1">
-                        <input type="radio" name="hidraulica_2" value="2">
-                        <input type="radio" name="hidraulica_2" value="3">
+                        <input class="radio" type="radio" name="hidraulica_2" value="0">
+                        <input class="radio" type="radio" name="hidraulica_2" value="1">
+                        <input class="radio" type="radio" name="hidraulica_2" value="2">
+                        <input class="radio" type="radio" name="hidraulica_2" value="3">
                     </li>                    
                 </ul>
             </li>
-            <li><div class="link"><i class="fa-solid fa-9"></i>Noveno semestre<i class="fa fa-chevron-down"></i></div>
+            <li>
+                <div class="desplegable">
+                    <i class="fa-solid fa-9"></i>
+                    <p>Noveno semestre</p>
+                    <i class="fa fa-chevron-down"></i>
+                </div>
                 <ul class="submenu">
                     <li class="materia-label">
-                        <p ></p>
-                        <p >Pendiente</p>
-                        <p >Aprobada</p>
-                        <p >Examen</p>
-                        <p >Tutoría</p>
+                        <p></p>
+                        <p>Pendiente</p>
+                        <p>Aprobada</p>
+                        <p>Examen</p>
+                        <p>Tutoría</p>
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Fenómenos de Transporte</p>
-                        <input type="radio" name="fenomenos_de_transporte" value="0">
-                        <input type="radio" name="fenomenos_de_transporte" value="1">
-                        <input type="radio" name="fenomenos_de_transporte" value="2">
-                        <input type="radio" name="fenomenos_de_transporte" value="3">
+                        <input class="radio" type="radio" name="fenomenos_de_transporte" value="0">
+                        <input class="radio" type="radio" name="fenomenos_de_transporte" value="1">
+                        <input class="radio" type="radio" name="fenomenos_de_transporte" value="2">
+                        <input class="radio" type="radio" name="fenomenos_de_transporte" value="3">
                     </li>
                     
                     <li class="materia-label">
                         <p class="materia-nombre">Manufactura Asistida</p>
-                        <input type="radio" name="manufactura_asistida" value="0">
-                        <input type="radio" name="manufactura_asistida" value="1">
-                        <input type="radio" name="manufactura_asistida" value="2">
-                        <input type="radio" name="manufactura_asistida" value="3">
+                        <input class="radio" type="radio" name="manufactura_asistida" value="0">
+                        <input class="radio" type="radio" name="manufactura_asistida" value="1">
+                        <input class="radio" type="radio" name="manufactura_asistida" value="2">
+                        <input class="radio" type="radio" name="manufactura_asistida" value="3">
                     </li>
                     
                     <li class="materia-label">
@@ -486,94 +535,99 @@
                     
                     <li class="materia-label">
                         <p class="materia-nombre">Probabilidad y Estadística</p>
-                        <input type="radio" name="probabilidad_y_estadistica" value="0">
-                        <input type="radio" name="probabilidad_y_estadistica" value="1">
-                        <input type="radio" name="probabilidad_y_estadistica" value="2">
-                        <input type="radio" name="probabilidad_y_estadistica" value="3">
+                        <input class="radio" type="radio" name="probabilidad_y_estadistica" value="0">
+                        <input class="radio" type="radio" name="probabilidad_y_estadistica" value="1">
+                        <input class="radio" type="radio" name="probabilidad_y_estadistica" value="2">
+                        <input class="radio" type="radio" name="probabilidad_y_estadistica" value="3">
                     </li>
                     
                     <li class="materia-label">
                         <p class="materia-nombre">Conversión de Energía</p>
-                        <input type="radio" name="conversion_de_energia" value="0">
-                        <input type="radio" name="conversion_de_energia" value="1">
-                        <input type="radio" name="conversion_de_energia" value="2">
-                        <input type="radio" name="conversion_de_energia" value="3">
+                        <input class="radio" type="radio" name="conversion_de_energia" value="0">
+                        <input class="radio" type="radio" name="conversion_de_energia" value="1">
+                        <input class="radio" type="radio" name="conversion_de_energia" value="2">
+                        <input class="radio" type="radio" name="conversion_de_energia" value="3">
                     </li>
                     
                     <li class="materia-label">
                         <p class="materia-nombre">Anteproyecto de Ingeniería</p>
-                        <input type="radio" name="anteproyecto_de_ing" value="0">
-                        <input type="radio" name="anteproyecto_de_ing" value="1">
-                        <input type="radio" name="anteproyecto_de_ing" value="2">
-                        <input type="radio" name="anteproyecto_de_ing" value="3">
+                        <input class="radio" type="radio" name="anteproyecto_de_ing" value="0">
+                        <input class="radio" type="radio" name="anteproyecto_de_ing" value="1">
+                        <input class="radio" type="radio" name="anteproyecto_de_ing" value="2">
+                        <input class="radio" type="radio" name="anteproyecto_de_ing" value="3">
                     </li>
                     
                 </ul>
             </li>
-            <li><div class="link"><i class="fa-solid fa-10"></i>Décimo semestre<i class="fa fa-chevron-down"></i></div>
+            <li>
+                <div class="desplegable">
+                    <i class="fa-solid fa-10"></i>
+                    <p>Décimo semestre</p>
+                    <i class="fa fa-chevron-down"></i>
+                </div>
                 <ul class="submenu">
                     <li class="materia-label">
-                        <p ></p>
-                        <p >Pendiente</p>
-                        <p >Aprobada</p>
-                        <p >Examen</p>
-                        <p >Tutoría</p>
+                        <p></p>
+                        <p>Pendiente</p>
+                        <p>Aprobada</p>
+                        <p>Examen</p>
+                        <p>Tutoría</p>
                     </li>
                     <li class="materia-label">
                         <p class="materia-nombre">Gestión de Calidad</p>
-                        <input type="radio" name="gestion_de_calidad" value="0">
-                        <input type="radio" name="gestion_de_calidad" value="1">
-                        <input type="radio" name="gestion_de_calidad" value="2">
-                        <input type="radio" name="gestion_de_calidad" value="3">
+                        <input class="radio" type="radio" name="gestion_de_calidad" value="0">
+                        <input class="radio" type="radio" name="gestion_de_calidad" value="1">
+                        <input class="radio" type="radio" name="gestion_de_calidad" value="2">
+                        <input class="radio" type="radio" name="gestion_de_calidad" value="3">
                     </li>
                     
                     <li class="materia-label">
                         <p class="materia-nombre">Gestión Ambiental</p>
-                        <input type="radio" name="gestion_ambiental" value="0">
-                        <input type="radio" name="gestion_ambiental" value="1">
-                        <input type="radio" name="gestion_ambiental" value="2">
-                        <input type="radio" name="gestion_ambiental" value="3">
+                        <input class="radio" type="radio" name="gestion_ambiental" value="0">
+                        <input class="radio" type="radio" name="gestion_ambiental" value="1">
+                        <input class="radio" type="radio" name="gestion_ambiental" value="2">
+                        <input class="radio" type="radio" name="gestion_ambiental" value="3">
                     </li>
                     
                     <li class="materia-label">
                         <p class="materia-nombre">Mecatrónica Avanzada</p>
-                        <input type="radio" name="mecatronica_avanzada" value="0">
-                        <input type="radio" name="mecatronica_avanzada" value="1">
-                        <input type="radio" name="mecatronica_avanzada" value="2">
-                        <input type="radio" name="mecatronica_avanzada" value="3">
+                        <input class="radio" type="radio" name="mecatronica_avanzada" value="0">
+                        <input class="radio" type="radio" name="mecatronica_avanzada" value="1">
+                        <input class="radio" type="radio" name="mecatronica_avanzada" value="2">
+                        <input class="radio" type="radio" name="mecatronica_avanzada" value="3">
                     </li>
                     
                     <li class="materia-label">
                         <p class="materia-nombre">Prácticas Profesionales</p>
-                        <input type="radio" name="practicas_profesionales" value="0">
-                        <input type="radio" name="practicas_profesionales" value="1">
-                        <input type="radio" name="practicas_profesionales" value="2">
-                        <input type="radio" name="practicas_profesionales" value="3">
+                        <input class="radio" type="radio" name="practicas_profesionales" value="0">
+                        <input class="radio" type="radio" name="practicas_profesionales" value="1">
+                        <input class="radio" type="radio" name="practicas_profesionales" value="2">
+                        <input class="radio" type="radio" name="practicas_profesionales" value="3">
                     </li>
                     
                     <li class="materia-label">
                         <p class="materia-nombre">Proyecto Final de Ingeniería</p>
-                        <input type="radio" name="proyecto_final_ing" value="0">
-                        <input type="radio" name="proyecto_final_ing" value="1">
-                        <input type="radio" name="proyecto_final_ing" value="2">
-                        <input type="radio" name="proyecto_final_ing" value="3">
+                        <input class="radio" type="radio" name="proyecto_final_ing" value="0">
+                        <input class="radio" type="radio" name="proyecto_final_ing" value="1">
+                        <input class="radio" type="radio" name="proyecto_final_ing" value="2">
+                        <input class="radio" type="radio" name="proyecto_final_ing" value="3">
                     </li>
                     
                 </ul>
             </li>
         </ul>
 
-        <div class="button-container">
-            <button id = "mostrarPlan" class = "actualizarPlan">Mostrar Plan 2023</button>
+        <div class="btn__mostrar_plan__container">
+            <button id = "mostrarPlan" class = "btn__mostrar_plan">Mostrar Plan 2023</button>
         </div>
 
         <div class = "plan2023Struct hidden" id = "plan2023Struct">
-            <h1>Plan 2023</h1>
+            <h1 class ="plan2023_subtitulo">Plan 2023</h1>
             <div class = "plan2023 hidden" id = "plan2023">
                 <section>
-                    <div class="cluster">
+                    <div class="semestre2023__contenedor">
                         <h3>Primer semestre</h3>
-                        <div class="cluster2">
+                        <div class="materia2023__contenedor">
                             <div class="child aprobada pendiente examen tutoria">COES</div>
                             <div class="child aprobada pendiente examen tutoria">PRG1</div>
                             <div class="child aprobada pendiente examen tutoria">TDC1</div>
@@ -584,9 +638,9 @@
                     </div>
                 </section>
                 <section>
-                    <div class="cluster">
+                    <div class="semestre2023__contenedor">
                         <h3>Segundo semestre</h3>
-                        <div class="cluster2">
+                        <div class="materia2023__contenedor">
                             <div class="child aprobada pendiente examen tutoria">MAT2</div>
                             <div class="child aprobada pendiente examen tutoria">FMIN</div>
                             <div class="child aprobada pendiente examen tutoria">TDC2</div>
@@ -598,9 +652,9 @@
                     </div>
                 </section>
                 <section>
-                    <div class="cluster">
+                    <div class="semestre2023__contenedor">
                         <h3>Tercer semestre</h3>
-                        <div class="cluster2">
+                        <div class="materia2023__contenedor">
                             <div class="child aprobada pendiente examen tutoria">MAT3</div>
                             <div class="child aprobada pendiente examen tutoria">PRG2</div>
                             <div class="child aprobada pendiente examen tutoria">EALG</div>
@@ -611,9 +665,9 @@
                     </div>
                 </section>
                 <section>
-                    <div class="cluster">
+                    <div class="semestre2023__contenedor">
                         <h3>Cuarto semestre</h3>
-                        <div class="cluster2">
+                        <div class="materia2023__contenedor">
                             <div class="child aprobada pendiente examen tutoria">TMPR</div>
                             <div class="child aprobada pendiente examen tutoria">PRG3</div>
                             <div class="child aprobada pendiente examen tutoria">MEM1</div>
@@ -624,9 +678,9 @@
                     </div>
                 </section>
                 <section>
-                    <div class="cluster">
+                    <div class="semestre2023__contenedor">
                         <h3>Quinto semestre</h3>
-                        <div class="cluster2">
+                        <div class="materia2023__contenedor">
                             <div class="child aprobada pendiente examen tutoria">MAEL</div>
                             <div class="child aprobada pendiente examen tutoria">TIND</div>
                             <div class="child aprobada pendiente examen tutoria">FIS3</div>
@@ -639,9 +693,9 @@
                     </div>
                 </section>
                 <section>
-                    <div class="cluster">
+                    <div class="semestre2023__contenedor">
                         <h3>Sexto semestre</h3>
-                        <div class="cluster2">
+                        <div class="materia2023__contenedor">
                             <div class="child aprobada pendiente examen tutoria">EDG2</div>
                             <div class="child aprobada pendiente examen tutoria">HYNE</div>
                             <div class="child aprobada pendiente examen tutoria">AUTM</div>
@@ -652,9 +706,9 @@
                     </div>
                 </section>
                 <section>
-                    <div class="cluster">
+                    <div class="semestre2023__contenedor">
                         <h3>Séptimo semestre</h3>
-                        <div class="cluster2">
+                        <div class="materia2023__contenedor">
                             <div class="child aprobada pendiente examen tutoria">MAT4</div>
                             <div class="child aprobada pendiente examen tutoria">EPOT</div>
                             <div class="child aprobada pendiente examen tutoria">MEM2</div>
@@ -665,9 +719,9 @@
                     </div>
                 </section>
                 <section>
-                    <div class="cluster">
+                    <div class="semestre2023__contenedor">
                         <h3>Octavo semestre</h3>
-                        <div class="cluster2">
+                        <div class="materia2023__contenedor">
                             <div class="child aprobada pendiente examen tutoria">PYES</div>
                             <div class="child aprobada pendiente examen tutoria">MNPI</div>
                             <div class="child aprobada pendiente examen tutoria">PRDS</div>
@@ -678,9 +732,9 @@
                     </div>
                 </section>
                 <section>
-                    <div class="cluster">
+                    <div class="semestre2023__contenedor">
                         <h3>Noveno semestre</h3>
-                        <div class="cluster2">
+                        <div class="materia2023__contenedor">
                             <div class="child aprobada pendiente examen tutoria">DMEC</div>
                             <div class="child aprobada pendiente examen tutoria">RBIN</div>
                             <div class="child aprobada pendiente examen tutoria">MAIC</div>
@@ -690,9 +744,9 @@
                     </div>
                 </section>
                 <section>
-                    <div class="cluster">
+                    <div class="semestre2023__contenedor">
                         <h3>Décimo semestre</h3>
-                        <div class="cluster2">
+                        <div class="materia2023__contenedor">
                             <div class="child aprobada pendiente examen tutoria">GCAL</div>
                             <div class="child aprobada pendiente examen tutoria">GIAM</div>
                             <div class="child aprobada pendiente examen tutoria">SICF</div>
